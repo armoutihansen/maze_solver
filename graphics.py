@@ -5,7 +5,7 @@ class Window:
         self.__root = Tk()
         self.__root.title("The Maze Solver")
         self.__canvas = Canvas(self.__root,
-                               bg="black",
+                               bg="white",
                                height=height,
                                width=width)
         self.__canvas.pack(fill=BOTH, expand=1)
@@ -28,25 +28,25 @@ class Window:
     def close(self):
         self.__running = False
         
-    def draw_line(self, line, fill_color="white"):
+    def draw_line(self, line, fill_color="black"):
         line.draw(self.__canvas, fill_color)
         
         
 class Point:
-    def __init__(self, x=0, y=0):
+    def __init__(self, x, y):
         self.x = x
         self.y = y
 
 class Line:
     def __init__(self, p1: Point, p2: Point):
-        self.__p1 = p1
-        self.__p2 = p2
+        self.p1 = p1
+        self.p2 = p2
         
     def draw(self, canvas: Canvas, fill_color):
-        x1 = self.__p1.x
-        y1 = self.__p1.y
-        x2 = self.__p2.x
-        y2 = self.__p2.y
+        x1 = self.p1.x
+        y1 = self.p1.y
+        x2 = self.p2.x
+        y2 = self.p2.y
         
         canvas.create_line(x1, y1, x2, y2, fill=fill_color, width=2)
             
