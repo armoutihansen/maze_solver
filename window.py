@@ -13,6 +13,9 @@ class Window:
         self.__running = False
         self.__root.protocol("WM_DELETE_WINDOW", self.close)
         
+    def get_canvas(self):
+        return self.__canvas
+        
     def redraw(self):
         self.__root.update_idletasks()
         self.__root.update()
@@ -28,7 +31,6 @@ class Window:
         
     def draw_line(self, line: Line, fill_color="white"):
         line.draw(self.__canvas, fill_color)
-        
         
         
     
