@@ -11,6 +11,7 @@ class Cell:
         self.has_right_wall = True
         self.has_top_wall = True
         self.has_bottom_wall = True
+        self.visited = False
         
     def draw(self, x1, y1, x2, y2):
         self._x1 = x1
@@ -46,7 +47,7 @@ class Cell:
         if not undo:
             fill_color = "red"
         else:
-            fill_color = "gray"
+            fill_color = "white"
         half_length1 = abs(self._x2 - self._x1) // 2
         cen_x1 = half_length1 + self._x1
         cen_y1 = half_length1 + self._y1
